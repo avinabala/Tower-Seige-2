@@ -4,28 +4,29 @@ class Block{
           restitution :0.4,
           friction :0.0,
       }
+      this.visiblity = 225;
       this.body = Bodies.rectangle(x, y, width, height, options);
       this.width = width;
       this.height = height;
+      this.image= loadImage("block.png")
       World.add(world, this.body);
-      this.image = loadImage("block.png")
-      this.visibilty = 255
+      
     }
+   
     display(){
+      console.log(this.body.speed);
       var pos= this.body.position;
-      rectMode(CENTER);
-      rect(pos.x,pos.y,this.width, this.height);
-
-      if(this.body.speed<3){
-        super.display()
+      if(this.body.speed <3){
+        imageMode(CENTER);
+        image(this.image,pos.x,pos.y,this.width, this.height);
       }
-      else{
-        World.remove(world,this.body)
-        push ()
-        this.visiblity = this.visiblity-5
-        tint (255,this.visiblity)
-        image(this.image,this.body.position.x,this.body.position.y,50,50)
-        pop ()
-      }
+    else{
+      World.remove(world, this.body);
+      push();
+      this.visiblity = this.visiblity - 5;
+      tint(255,this.visiblity);
+      image(this.image, this.body.position.x, this.body.position.y,this.width, this.height);
+      pop();
     }
+  }
 }
