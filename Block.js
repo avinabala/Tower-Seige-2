@@ -14,10 +14,11 @@ class Block{
     }
    
     display(){
-      var pos= this.body.position;
-      if(this.body.speed <3){
+      var pos = this.body.position;
+      var angle = this.body.angle
+      if(this.body.speed <5){
       push();
-      translate(this.body.position.x, this.body.position.y);
+      translate(pos.x, pos.y);
       rotate(angle);
       imageMode(CENTER);
       image(this.image, 0, 0, this.width, this.height);
@@ -27,7 +28,7 @@ class Block{
       push();
       this.visiblity = this.visiblity - 5;
       tint(255,this.visiblity);
-      image(this.image, 0, 0,this.width, this.height);
+      image(this.image, pos.x, pos.y,this.width, this.height);
       pop();
     }
   }
